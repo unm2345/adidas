@@ -1,0 +1,57 @@
+@mixin ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin multi-ellipsis($font-size, $line-height, $lines) {
+    font-size: $font-size;
+    line-height: $line-height;
+    max-height: $line-height * $lines;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical; /* autoprefixer: off */
+}
+
+@mixin pos-center(){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin mobile-small {
+  @media (max-width: #{$max-mobile-small-width}) {
+    @content;
+  }
+}
+
+@mixin mobile-middle {
+  @media (max-width: #{$max-mobile-middle-width}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$max-mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$max-tablet-width}) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (max-width: #{$max-pc-width}) {
+    @content;
+  }
+}
+@mixin pc-large {
+  @media (max-width: #{$max-pc-large-width}) {
+    @content;
+  }
+}

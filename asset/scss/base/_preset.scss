@@ -1,0 +1,30 @@
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+}
+
+body{
+  min-width: 320px;
+  overflow-x: hidden;
+  font-family: 'Questrial', 'Noto Sans KR', sans-serif;
+  letter-spacing: -0.05em;
+
+  &.hide{
+    overflow: hidden;
+  }  
+}
+
+.inr{
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 20px;
+  height: 100%;
+  margin: 0 auto;
+
+  z-index: 1;
+}

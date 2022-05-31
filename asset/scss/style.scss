@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&family=Questrial&display=swap');
+// abstracts
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+//base
+@import './base/reset';
+@import './base/preset';
+
+// components
+@import './components/buttons';
+
+//layout
+@import './layout/header';
+@import './layout/footer';
+
+//pages
+@import './pages/home';
