@@ -1,4 +1,15 @@
 $(function(){
+  const splitText = (ele)=>{
+    const textAry = ele.innerText.split("");
+    let html = "<div class='split-chars'>";
+    textAry.forEach(function(ele){
+      html+= "<div class='split-char' style='display: inline-block'>" + ele + "</div>";
+    })
+    html+= "</div>";  
+
+    ele.innerHTML = html;
+  }
+  
   motions = {
     init: function(){
       gsap.registerPlugin(ScrollTrigger);
