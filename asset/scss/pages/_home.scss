@@ -1,30 +1,14 @@
 // home
-#main-scroll {
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-}
-
-.sc_cont{  
-  .inr{
-    display: flex;
-  }
+.main{
+  overflow: hidden;
 }
 
 .sc_title{
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  font-size: 60px;
-  font-weight: bold;
+  padding-bottom: 20px;
+  
+  font-size: 36px;
   text-align: center;
-
-  transition: 0.5s ease;
-
-  @include pc{
-    font-size: 48px;
-  }
-  @include mobile{
-    font-size: 32px;
-  }
+  letter-spacing: 0.1em;
 }
 
 .intro{
@@ -52,19 +36,13 @@
   }
 
   &_figure{    
-    @include pos-center;
-    width: 100%;
     height: 100%;
-    max-height: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    
+    padding: 20px;    
   }
   
   &_figure-inr{
     overflow: hidden;
     position: relative;
-    width: 0;
     height: 100%;
         
     border-radius: 50px 0 50px 50px;
@@ -81,242 +59,187 @@
 
   &_img{
     @include pos-center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
 // goods
 .goods{
-  $root : &;
-  padding: 100px 0 50px;
+  margin-top: 150px;
 
-  transition: 0.3s ease;
-
-  @include mobile{
-    padding: 50px 0;
-  }
-
-  &_cont{
-    display: flex;
+  &_list{
+    display: flex;    
     flex-wrap: wrap;
-    padding-top: 50px;
-    margin: 0 -20px;
   }
+  
+  .item{
+    width: 20%;
+  
+    padding: 20px 10px 20px 30px;
 
-  &-reverse{
-    #{$root}_cont{
-      flex-direction: row-reverse;
+    &:nth-child(-n + 3){
+      width: 33.3333%;
+
+      .item_link{
+        padding-bottom: 30%;
+      }
     }
-  }
-
-  &_area{
-    position: relative;
-    width: 50%;
-
+  
+    @include pc{
+      width: 25%;
+    }
+  
     @include tablet{
-      width: 100%;
+      width: 33.3333%;
+
+      &:nth-child(-n + 3){  
+        .item_link{
+          padding-bottom: 100%;
+        }
+      }
     }
-  }
+  
+    @include mobile{
+      width: 50%;
 
-  .best{
-    position: sticky;
-    top: 80px;
+      &:nth-child(-n + 3){
+        width: 100%;
+  
+        .item_link{
+          padding-bottom: 30%;
+        }
+      }    
+    }
+  
+    @include mobile-small{
+      width: 100%;
 
-    width: 100%;
-    padding: 20px;
-    margin: 0 auto;
-
+      &:nth-child(-n + 3){  
+        .item_link{
+          padding-bottom: 100%;
+        }
+      }
+    }
+  
     &_link{
       display: block;
       position: relative;
-      padding: 20px 20px 30px;      
-      border-radius: 10px;
+      padding-bottom: 50%;
+      
+      background: #eceef0;
 
-      transition: 0.3s ease-in-out;
+      @include tablet{        
+        padding-bottom: 100%;
+      }
 
-      &:hover{
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px 3px rgba(0,0,0,.2);
+      @include mobile{        
+        padding-bottom: 65%;
+      }
+
+      @include mobile-small{        
+        padding-bottom: 100%;
       }
     }
-
-    &_tags{
+  
+    &_tag{
       position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
-    
-    &_new{
-      display: block;
-      width: 100%;
-      padding: 8px 10px;
-      color: #fff;
-      font-size: 14px;
-      text-align: center;
-      text-transform: uppercase;
-
-      background: rgb(0, 0, 0);
+      top: 0;
+      right: 100%;
+  
+      line-height: 20px;
+      letter-spacing: 0.05em;
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
     }
 
     &_figure{
       overflow: hidden;
-      background: #eaedee;
-    }
-
-    &_img{
-      display: block;
+      position: absolute;
       width: 100%;
-
-      transition: 0.3s ease-in-out;
+      height: 100%;
     }
-
-    &_link:hover{        
-      .best_img{
-        transform: rotate(7deg);    
-      }
+    
+    &_img{
+      @include pos-center;
+      height: 100%;
+      object-fit: cover;
     }
-
-    &_detail{
-      margin-top: 10px;
-    }
-
-    &_title{
-      display: block;
-      font-size: 14px;
-      line-height: 32px;
+    
+    &_word{
+      @include pos-center;
+      
+      font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+      color: #000;
+      font-size: 8vw;
       font-weight: bold;
     }
-
-    &_price{
-      font-size: 14px;
-      .sale{
-        display: inline-block;
-        margin-right: 4px;
-        
-        color: #e32b2b;
-        text-decoration: none;
-      }  
-      
-      .sale + .normal{
-        color: #6e6e6e;
-        text-decoration: line-through;
-      }
-    }
-
-    &_cate{
-      display: block;
-      color: #6e6e6e;
-      font-size: 14px;
-      line-height: 16px;
-    }
-  }
-
-  &_list{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    margin: 0 -5px;
-
-    .item{
-      width: 50%;
-      padding: 0 5px;
-      margin-bottom: 10px;
-
-      @include mobile-middle{
-        width: 100%;
-      }
-
-      &_link{
-        display: block;
-        position: relative;
-        padding: 20px 20px 30px;
-        border-radius: 10px;
-
-        transition: 0.3s ease;
-
-        &:hover{
-          transform: translateY(-5px);
-          box-shadow: 0px 6px 9px 3px rgba(0,0,0,.2);
-        }
-      }
-
-      &_tags{
-        position: absolute;
-        top: 20px;
-        right: 20px;
-
-        z-index: 10;
-      }
-      
-      &_new{
-        display: block;
-        width: 100%;
-        padding: 8px 10px;
-        color: #fff;
-        font-size: 14px;
-        text-align: center;
-        text-transform: uppercase;
   
-        background: rgb(0, 0, 0);
+    &_overlay{
+      opacity: 0;
+      visibility: hidden;
+  
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      
+      background: rgba(0,0,0,.8);
+      text-align: center;
+  
+      transition: 0.3s ease;
+  
+      &::before{
+        content: ''; 
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
       }
-
-      &_figure{
-        overflow: hidden;
-        background: #eaedee;
+    }
+  
+    &_text{
+      display: inline-block;
+      vertical-align: middle;   
+    }  
+    &_name{
+      display: block;
+      font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+      color: #ee265c;
+      font-size: 4vw;
+      font-weight: bold;
+      @include tablet{
+        font-size: 10vw;
       }
-
-      &_img{
-        display: block;
-        width: 100%;
-
-        transition: 0.3s ease-in-out;
+      @include mobile{
+        font-size: 15vw;
       }
-
-      &_link:hover{
-        .item_img{
-          transform: rotate(10deg);    
-        }
+      @include mobile-small{
+        font-size: 25vw;
       }
-
-      &_detail{
-        margin-top: 10px;
+    }
+    &_more-box{
+      overflow: hidden;
+    }
+    &_more{
+      display: block;
+      color: #ee265c;
+      font-size: 21px;
+      letter-spacing: 0.2em;
+  
+      transform: translateY(100%);
+      transition: 0.3s ease 0.1s;
+    }
+  
+    &_link:hover{
+      .item_overlay{
+        opacity: 1;
+        visibility: visible;
       }
-
-      &_title{
-        display: block;
-        font-size: 14px;
-        line-height: 32px;
-        font-weight: bold;
-      }
-
-      &_price{
-        font-size: 14px;
-        line-height: 21px;
-        .sale{
-          display: inline-block;
-          margin-right: 4px;
-
-          color: #e32b2b;
-          font-size: 14px;
-          text-decoration: none;
-        }  
-
-        .normal{
-          font-size: 14px;
-        }
-        
-        .sale + .normal{
-          color: #6e6e6e;
-          font-size: 14px;
-          text-decoration: line-through;
-        }
-      }
-
-      &_cate{
-        display: block;
-        color: #6e6e6e;
-        font-size: 14px;
-        line-height: 16px;
+  
+      .item_more{
+        transform: translateY(0%);
       }
     }
   }
@@ -324,149 +247,370 @@
 
 // adiclub
 .adiclub{
+  overflow: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   position: relative;
-  padding: 100px 0 50px;
+  height: 100vh;
+  min-height: 600px;
+  margin-top: 150px;
 
   @include mobile{
-    padding: 50px 0;
-  }
-
-  &_title{    
-    span{
-      font-weight: normal;
-    }
-  }
-  &_cont{
-    display: flex;
-    position: relative;
-    padding-top: 50px;
+    display: block;
+    height: auto;    
+    min-height: auto; 
+    margin-top: 100px;   
   }
 
   &_text{
-    flex: 1;
-    position: relative;    
-  }
-
-  &_detail{
-    position: sticky;
-    top: 80px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;    
-    height: 100vh;
-    max-height: 450px;
-    background: #fff;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 
-    @include mobile{
-      top: 60px;
-      max-height: 300px;
-      &:nth-child(odd){
-        background: #000;
-        color: #fff;
-      }
-    }
+    width: 100%;
+    height: 100%;
   }
 
-  &_headline{
-    font-size: 48px;
-    span{      
-      display: block;
-      font-weight: bold;
-    }
-    
+  &_title{
+    display: block;
+    position: relative;
+
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 10vw;
+
+    z-index: 1;
+
+    pointer-events: none;
+
     @include mobile{
-      font-size: 6vw;
-      text-align: center;
+      font-size: 32px;
+    }
+
+    span{
+      color: #ee265c;
+      font-weight: bold;
     }
   }
 
   &_desc{
-    padding-top: 10px;
+    display: none;
+    padding: 10px 20px;
+
     font-size: 14px;
     line-height: 1.2;
+    text-align: center;
+    word-break: keep-all;
 
+    @include mobile{
+      display: block;
+    }
+  }  
+
+  &_words{
     @include mobile{
       display: none;
     }
   }
+  
+  &_word{
+    position: absolute;
 
-  &_imgs{
-    width: 30%;    
-    min-width: 240px;
+    text-align: center;
 
-    @include mobile{
-      display: none;
+    .front{
+      display: block;
+      transform-origin: center;
+      backface-visibility: hidden;
+
+      transition: 0.3s ease-in;
+    }
+
+    .back{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 100%;
+      
+      font-size: 21px;
+      line-height: 1.2;
+      word-break: keep-all;
+
+      transform: translate(-50%, -50%) rotateY(180deg);
+      transform-origin: center;
+      backface-visibility: hidden;   
+      
+      transition: 0.3s ease-in;
+
+      @include tablet{
+        width: 250px;
+        font-size: 16px;
+      }
+    }
+
+    &:hover{
+      .front{
+        transform: rotateY(180deg);
+      }
+      .back{
+        transform: translate(-50%, -50%) rotateY(360deg);
+      }
+    }
+
+    &.a1{
+      top: 15%; left: 4%;
+      
+      .front{
+        font-size: 50px;
+
+        @include tablet{
+          font-size: 4vw;
+        }
+      }
+    }
+    &.a2{
+      top: 33%; left: 30%;
+      
+      .front{
+        font-size: 27px;
+        
+        @include tablet{
+          font-size: 2.5vw;
+        }
+      }
+    }
+    &.a3{      
+      top: 18%; left: 50%;
+      
+      .front{
+        font-size: 34px;
+        
+        @include tablet{
+          font-size: 3vw;
+        }
+      }
+    }
+    &.a4{
+      top: 32%; right: 25%;
+      
+      .front{
+        font-size: 27px;
+        
+        @include tablet{
+          font-size: 2.5vw;
+        }
+      }
+    }
+    &.a5{
+      top: 17%; right: 6%;
+      
+      .front{
+        font-size: 42px;
+
+        @include tablet{
+          font-size: 3.5vw;
+        }
+      }
+    }
+    &.a6{
+      top: 92%; left: 15%;
+      
+      .front{
+        font-size: 50px;
+
+        @include tablet{
+          font-size: 4vw;
+        }
+      }
+    }
+    &.a7{
+      top: 75%; left: 8%;
+      
+      .front{
+        font-size: 34px;
+
+        @include tablet{
+          font-size: 3vw;
+        }
+      }
+    }
+    &.a8{
+      top: 78%; left: 43%;
+      
+      .front{
+        font-size: 27px;
+
+        @include tablet{
+          font-size: 2.5vw;
+        }
+      }
+    }
+    &.a9{
+      top: 95%; left: 63%;
+      
+      .front{
+        font-size: 31px;
+
+        @include tablet{
+          font-size: 3vw;
+        }
+      }
+    }
+    &.a10{
+      top: 68%; right: 6%;
+      
+      .front{
+        font-size: 46px;
+
+        @include tablet{
+          font-size: 4vw;
+        }
+      }
+    }
+
+    span{
+      display: block;
+      font-weight: bold;
     }
   }
 
-  &_figures-wrap{
-    position: sticky;
-    top: 0;    
-    height: 100vh;
-    max-height: 450px;
-  }
+  &_video-wrap{
+    opacity: 0;
+    visibility: hidden;
 
-  &_figures{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
+    height: 100%;
+    padding: 20px 20px 140px 20px; 
+
+    background: #fff;
+
+    @include mobile{
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: relative;
+      padding: 30px 0 10px;
+    }
+
+    video{      
+      width: 100%;
+      height: auto;
+    }
+
+    z-index: 10;
   }
 
-  &_figure{
-    position: relative;
-    box-shadow: 4px 3px 6px 2px rgba(0,0,0,.2);
+  &_dummy{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
 
+    width: 50px;
+    height: 50px;
+
+    background: #ee265c;
+    border-radius: 50%;
+
+    z-index: -1;
+
+    @include mobile{
+      display: none;
+    }
+  }
+
+  &_btn{
+    position: absolute;      
+    bottom: 20px;
+    right: 20px;
+
+    width: 100px;
+    height: 100px;
+    background: #000;
+    border-radius: 50%;
     
-    &:nth-child(1){
-      transform: rotate(-10deg);
-    }
-    &:nth-child(2){
-      transform: rotate(10deg);
-    }
-    &:nth-child(3){
-      margin-top: 30px;
-      transform: translateX(-26px) rotate(4deg);
-    }
-    &:nth-child(4){
-      margin-top: -20px;
-      transform: rotate(-10deg);
-    }
-    &:nth-child(5){
-      margin-top: 40px;
-      transform: rotate(10deg);
-    }
-    &:nth-child(6){
-      transform: rotate(-5deg);
-    }
-    &:nth-child(7){
-      transform: translateX(-30px) rotate(13deg);
+    color: #fff;
+    font-size: 18px;
+    transition: 0.3s ease;
+
+    &:hover{
+      background: #ee265c;
+      transform: translateY(-10px);      
     }
 
-    &::before{
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #fff;
+    @include mobile{
+      display: none;
     }
   }
 
-  &_img{
-    width: 100%;
+  &_link{
+    position: absolute;  
+    left: 20px;
+    bottom: 20px;
+    width: 100px;
+    height: 100px;
+    background: #000;
+    border-radius: 50%;
+    
+    color: #fff;
+    font-size: 21px;
+    text-align: center;
+    line-height: 100px;
+    
+    transition: 0.3s ease;
+
+    z-index: 30;
+    
+    @include mobile{
+      display: block;
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      background: #000;
+      border-radius: 0;
+
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    &:hover{
+      background: #ee265c;
+      transform: translateY(-10px);      
+
+      @include mobile{
+        transform: translateY(0);      
+      }
+    }
   }
 }
 
 // runner
 .runner{
   overflow: hidden;
+
   position: relative;
-  padding: 100px 0;
+  height: 100vh;
+  min-height: 600px;
+  
   background: #000 url(../images/bg/runner.jpg) no-repeat center / cover;
   background-attachment: fixed;
 
@@ -479,26 +623,32 @@
     width: 100%;
     height: 100%;
 
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.5);
   }
 
   @include mobile{
-    padding: 50px 0;
+    min-height: auto;
+    margin-top: 100px;
+  }
+
+  .inr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &_text{
-    padding: 50px 20px;
-    background: rgba(0,0,0,.6);
-
+    position: relative;
     text-align: center;
+
+    z-index: 10;
   }
 
   &_title{
     display: inline-block;
     position: relative;
-    border-bottom: 2px solid #fff;
 
-    font-size: 36px;
+    font-size: 2vw;
     font-weight: normal;    
 
     transition: 0.5s ease;
@@ -513,9 +663,9 @@
   }
 
   &_desc{
-    padding: 30px 0 5px; 
+    padding: 30px 0 100px; 
     
-    font-size: 48px;
+    font-size: 4vw;
     line-height: 1.2;        
     word-break: keep-all;
 
@@ -529,7 +679,7 @@
       display: inline-block;
       color: #ee265c;
       font-weight: bold;
-      font-size: 60px;
+      font-size: 8vw;
       transition: fontSize 0.5s;
 
       @include mobile{
@@ -541,12 +691,22 @@
 
   &_link{
     display: inline-block;
-    padding: 5px;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 50%;
+    
+    color: #000;
     font-size: 21px;
+    line-height: 190px;
+    font-weight: bold;
+    
     transition: 0.5s ease;
     
     &:hover{
-      color: #ee265c;
+      background: #ee265c;
+      color: #fff;
+      transform: translateY(-20px);
     }
 
     @include mobile{
@@ -560,42 +720,46 @@
     width: 100%;
     height: 100%;
     background: #fff;
-    z-index: 5;
+    z-index: 20;
   }
 }
 
 // company
 .company{
-  padding: 100px 0 50px;
-  text-align: center;
-
-  @include mobile{
-    padding: 50px 0;
-  }
+  margin: 100px 0;
   
+  .inr{
+    display: flex;
+  
+    @include tablet{
+      flex-direction: column;
+    }
+  }
+
+  &_title{
+    align-self: start;
+    padding-right: 50px;    
+    @include tablet{
+      padding-right: 0;
+    }
+  }
+
   &_list{
     display: flex;
     flex-wrap: wrap;
-
-    padding-top: 50px;
-    margin: 0 -10px;
+    flex: 1;
   }
 
   .item{
-    width: 50%;
-    padding: 0 10px;
+    width: 25%;
     text-align: center;
 
-    &:nth-child(n+3){
-      margin-top: 10px;
+    @include pc{
+      width: 50%;
     }
 
     @include mobile-middle{
       width: 100%;
-
-      &:nth-child(2){
-        margin-top: 10px;
-      }
     }
 
     &_link{
@@ -607,66 +771,79 @@
     &_img{
       display: block;
       width: 100%;
-  
-      transition: 0.3s ease-in-out;
-    }
-  
-    &_link:hover{
-      .item_img{
-        transform: scale(1.15) rotate(5deg);
-      }
     }
   
     &_overlay{  
+      opacity: 0;
+      visibility: hidden;
+
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      transform: scale(0);      
+      background: rgba(0,0,0,.8);
+
+      text-align: center;
+
       z-index: 1;
 
       transition: 0.3s ease-in-out;
+
+      &::before{
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
     }
 
     &_link:hover{
       .item_overlay{
-        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
       }
     }
   
-    &_text{  
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      height: 100%;
-      background: rgba(0,0,0,.5);    
-  
-      z-index: 1;
+    &_text{
+      display: inline-block;
+      vertical-align: middle;      
     }
-
+    
     &_title{
       color: #fff;
+      font-size: 24px;      
       font-weight: bold;
-      font-size: 24px;
     }
   }
 }
 
 // support
 .support{
-  padding: 100px 0;
-  background: #eaedee;
+  margin-bottom: 100px;
+  
+  .inr{
+    display: flex;
+  
+    @include tablet{
+      flex-direction: column;
+    }
+  }
 
-  @include mobile{
-    padding: 50px 0;
+  &_title{
+    align-self: start;
+    padding-right: 50px;   
+    @include tablet{
+      padding-right: 0;
+    }
   }
 
   &_list{
-    padding-top: 30px;
+    flex: 1;
   }
 
   .item{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     & + .item{
       margin-top: 5px;
     }
@@ -675,39 +852,16 @@
       display: block;
       position: relative;
       width: 100%;
-      padding: 20px 60px 20px 40px;
-      background: #fff;
+      padding: 20px;
 
       font-size: 18px;
       text-align: left;
-      word-break: keep-all;
+      text-align: center;
 
       transition: 0.5s ease;
 
       @include mobile{
-        padding: 20px 60px 20px 20px;
         font-size: 14px;
-      }
-
-      &::after{
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-
-        border-width: 10px 10px 0 10px;
-        border-style: solid;
-        border-color: #000 transparent transparent transparent ;
-
-        transition: 0.5s ease;
-      }
-    }
-
-    &.on{
-      .item_btn::after{
-        border-width: 0 10px 10px 10px;
-        border-color: transparent transparent #000 transparent ;
       }
     }
 
@@ -716,8 +870,7 @@
     }  
 
     &_detail{
-      background: #fff;
-      border-top: 5px solid #eaedee;
+      border-top: 1px solid #000;
       padding: 20px 40px;
 
       @include mobile{

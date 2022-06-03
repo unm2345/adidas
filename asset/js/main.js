@@ -1,18 +1,22 @@
 $(function(){
-  const splitText = (ele)=>{
-    const textAry = ele.innerText.split("");
-    let html = "<div class='split-chars'>";
-    textAry.forEach(function(ele){
-      html+= "<div class='split-char' style='display: inline-block'>" + ele + "</div>";
-    })
-    html+= "</div>";  
-
-    ele.innerHTML = html;
-  }
-
   motions = {
     init: function(){
       gsap.registerPlugin(ScrollTrigger);
+    },
+    header: function(){
+      $(window).scroll(function(){
+        if(0 < $(this).scrollTop()){
+          $(".header").addClass("on");
+        } else {
+          $(".header").removeClass("on");
+        }
+      })
+
+      $(".navi a").click(function(e){
+        e.preventDefault();
+
+        $($(this).attr("href"))[0].scrollIntoView({behavior: "smooth"});
+      })
     },
     gnb: function(){
       $(".js-btn_open-menu").click(function(){
@@ -33,56 +37,19 @@ $(function(){
         $("body").removeClass("hide");
       })
     },
-    main: function(){
-      const title = document.querySelectorAll(".js-sc_title"); 
-
-      gsap.set(title, {
-        opacity: 0
-      })
-      
-      gsap.utils.toArray(title).forEach(function(ele, idx){
+    common: function(){
+      gsap.utils.toArray(".sc_title").forEach(function(ele){
+        gsap.set(ele, {yPercent : 100, opacity: 0})
         gsap.to(ele, {
-          opacity: 1,
-          duration: 0.2,
-          scrollTrigger:{
+          scrollTrigger: {
             trigger : ele,
-            start: "top bottom",
-          }
+            start: "top 70%",
+          },
+          duration: 0.3,
+          opacity: 1,
+          yPercent: 0
         })
       })
-
-      const link = document.querySelectorAll(".js-link-more"); 
-
-      gsap.set(link, {
-        yPercent: 100,
-        opacity: 0
-      })
-      
-      gsap.utils.toArray(link).forEach(function(ele, idx){
-        gsap.to(ele, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.2,
-          scrollTrigger:{
-            trigger : ele,
-            start: "top bottom",
-          }
-        })
-      })      
-    },
-    intro: function(){
-      const text = document.querySelector(".js-intro_title");
-      splitText(text);
-      gsap.set(".js-intro_title .split-char", {x: -1000});
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger : ".intro",
-          start: "top bottom",
-        }        
-      })
-      tl.to(".js-intro_figure-inr", {width : "100%", duration: 1.5})
-      .to(".js-intro_title .split-char", {x : 0, stagger: 0.1, duration: 0.8}, "-=1.5")
     },
     goods: function(){
       gsap.set(".goods .js-item", {yPercent : 100, opacity: 0})
@@ -96,44 +63,65 @@ $(function(){
         yPercent: 0
       })
     },
-    adiclub: function(){  
-      let moveY = -($(".js-adiclub_figures").outerHeight()) * 0.88;
-      $(window).resize(function(){
-        moveY = -($(".js-adiclub_figures").outerHeight()) * 0.88;
-  
-        ani.kill()
-        gsap.set(".js-adiclub_figures", {y: 0})
-        ani = gsap.to(".js-adiclub_figures", {
-          scrollTrigger: {
-            trigger: ".adiclub_cont",
-            start: "top top",
-            end: "90% top",
-            scrub: 1
-          },
-          y: moveY
-        })
-      })
-  
-      let ani = gsap.to(".js-adiclub_figures", {
+    adiclub: function(){ 
+      gsap.set(".js-adiclub_word", {opacity: 0})
+      gsap.to(".js-adiclub_word", {
         scrollTrigger: {
-          trigger: ".adiclub_cont",
-          start: "top top",
-          end: "90% top",
-          scrub: 1
+          trigger : ".adiclub",
+          start: "top center",
         },
-        y: moveY
+        stagger: 0.15,
+        opacity: 1
       })
+
+      ScrollTrigger.matchMedia({
+        "(min-width: 769px)": function() {
+          gsap.utils.toArray(".js-adiclub_word").forEach(function(ele){        
+            gsap.to(ele, {
+              scrollTrigger: {
+                trigger: ".adiclub",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+              },
+              y: -(parseInt(Math.random() * 100) + 50)
+            })
+          });
+        }       
+      }); 
       
+      $(".js-adiclub_btn-start").click(function(e){
+        const tl = gsap.timeline();
+        tl.set(".js-adiclub_dummy", {opacity: 1,"z-index": 5})
+        .to(".js-adiclub_dummy", {scaleX: 150, scaleY: 150})
+        .to(".js-adiclub_dummy", {background: "#fff"})
+        .to(".js-adiclub_video-wrap", {opacity: 1, visibility: "visible"})
+        .set(".js-adiclub_dummy", {scaleX: 1, scaleY: 1, "z-index": -1});
+
+        $(".js-adiclub_video")[0].play();
+      })   
+      
+      $(".js-adiclub_btn-pause").click(function(){
+        const tl = gsap.timeline();
+        tl.set(".js-adiclub_dummy", {background: "#ee265c", "z-index": 20})
+        .to(".js-adiclub_dummy", {scaleX: 150, scaleY: 150})
+        .to(".js-adiclub_dummy", {background: "#fff"})
+        .set(".js-adiclub_video-wrap", {opacity: 0, visibility: "hidden"})
+        .to(".js-adiclub_dummy", {opacity: 0})
+        .set(".js-adiclub_dummy", {background: "#ee265c", scaleX: 1, scaleY: 1, "z-index": -1});
+
+        $(".js-adiclub_video")[0].pause();
+      })
     },
     runner: function(){
-      const text = document.querySelector(".js-flash");
+      const text = $(".js-flash").get(0);
       splitText(text);
       gsap.set(".js-flash .split-char", {opacity: 0, yPercent: 100});
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger : ".runner",
-          start: "80% bottom",
+          start: "top center",
         }        
       })
       tl.to(".js-runner_dummy", {yPercent: 100, duration: 0.5})
@@ -152,17 +140,27 @@ $(function(){
       })
     },
     support: function(){
+      gsap.set(".support .js-item", {xPercent : 100, opacity: 0})
+      gsap.to(".support .js-item", {
+        scrollTrigger: {
+          trigger : ".support",
+          start: "top center",
+        },
+        stagger: 0.15,
+        opacity: 1,
+        xPercent: 0
+      })
       $(".support .item_btn").click(function(){
         $(this).parent().toggleClass("on");
-        $(this).siblings(".item_detail-area").stop().slideToggle(300);
+        $(this).siblings(".item_detail-area").stop().slideToggle(300);        
       })
     }
   }
   
   motions.init();
+  motions.header();
   motions.gnb();
-  motions.main();
-  motions.intro();
+  motions.common();
   motions.goods();
   motions.adiclub();
   motions.runner();
