@@ -9,7 +9,6 @@
 
 body{
 min-width: 320px;
-overflow-x: hidden;
 font-family: 'Questrial', 'Noto Sans KR', sans-serif;
 letter-spacing: -0.05em;
 
@@ -25,7 +24,7 @@ height: 100%;
 padding: 0 8%;
 margin: 0 auto;
 
-@include mobile{
-  padding: 0 4%;
-}
+  @include tablet{
+    padding: 0 4%;
+  }
 }

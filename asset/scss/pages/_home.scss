@@ -8,7 +8,6 @@
   
   font-size: 36px;
   text-align: center;
-  letter-spacing: 0.1em;
 }
 
 .intro{
@@ -67,7 +66,7 @@
 
 // goods
 .goods{
-  margin-top: 150px;
+  padding-top: 100px;
 
   &_list{
     display: flex;    
@@ -77,13 +76,13 @@
   .item{
     width: 20%;
   
-    padding: 20px 10px 20px 30px;
+    padding: 20px 0px 20px 30px;
 
     &:nth-child(-n + 3){
       width: 33.3333%;
 
       .item_link{
-        padding-bottom: 30%;
+        padding-bottom: 42%;
       }
     }
   
@@ -126,7 +125,7 @@
     &_link{
       display: block;
       position: relative;
-      padding-bottom: 50%;
+      padding-bottom: 75%;
       
       background: #eceef0;
 
@@ -174,6 +173,10 @@
       color: #000;
       font-size: 8vw;
       font-weight: bold;
+
+      @include mobile{
+        font-size: 30vw;
+      }
     }
   
     &_overlay{
@@ -255,14 +258,11 @@
 
   position: relative;
   height: 100vh;
-  min-height: 600px;
-  margin-top: 150px;
+  margin-top: 100px;
 
   @include mobile{
     display: block;
     height: auto;    
-    min-height: auto; 
-    margin-top: 100px;   
   }
 
   &_text{
@@ -273,6 +273,10 @@
 
     width: 100%;
     height: 100%;
+
+    @include mobile{
+      flex-direction: column;
+    }
   }
 
   &_title{
@@ -287,7 +291,7 @@
     pointer-events: none;
 
     @include mobile{
-      font-size: 32px;
+      font-size: 36px;
     }
 
     span{
@@ -312,7 +316,7 @@
 
   &_words{
     @include mobile{
-      display: none;
+      padding: 30px 0 90px;
     }
   }
   
@@ -323,12 +327,26 @@
 
     text-align: center;
 
+    @include mobile{
+      position: static;
+      padding: 40px 10px;
+      
+      margin-bottom: 10px;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+
     .front{
       display: block;
       transform-origin: center;
       backface-visibility: hidden;
 
-      transition: 0.3s ease-in;
+      transition: transform 0.3s ease-in;
+
+      @include mobile{
+        margin-bottom: 20px;
+        font-size: 8vw !important; 
+      }
     }
 
     .back{
@@ -357,15 +375,41 @@
         width: 250px;
         font-size: 16px;
       }
+
+      @include mobile{        
+        display: block;
+  
+        position: static;
+        width: auto;
+        height: 100%;
+        background: transparent;
+
+        font-size: 14px;
+        
+        transform: translate(0, 0) rotateY(0);
+      }
     }
 
     &:hover{
       .front{
         transform: rotateY(180deg);
+
+        @include mobile{
+          transform: rotateY(0);
+        }
       }
       .back{
         transform: translate(-50%, -50%) rotateY(360deg);
+        @include mobile{
+          transform: translate(0, 0) rotateY(0);
+
+        }
       }
+    }
+
+    span{
+      display: block;
+      font-weight: bold;
     }
 
     &.a1{
@@ -478,11 +522,6 @@
         }
       }
     }
-
-    span{
-      display: block;
-      font-weight: bold;
-    }
   }
 
   &_video-wrap{
@@ -504,15 +543,16 @@
     background: #fff;
 
     @include mobile{
-      opacity: 1 !important;
-      visibility: visible !important;
-      position: relative;
-      padding: 30px 0 10px;
+      display: none;
     }
 
     video{      
       width: 100%;
       height: auto;
+
+      @include mobile{
+        display: none;
+      }
     }
 
     z-index: 10;
@@ -541,8 +581,8 @@
     bottom: 20px;
     right: 20px;
 
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: #000;
     border-radius: 50%;
     
@@ -555,6 +595,11 @@
       transform: translateY(-10px);      
     }
 
+    @include tablet{
+      width: 100px;
+      height: 100px;
+    }
+
     @include mobile{
       display: none;
     }
@@ -564,156 +609,162 @@
     position: absolute;  
     left: 20px;
     bottom: 20px;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: #000;
     border-radius: 50%;
     
     color: #fff;
     font-size: 21px;
     text-align: center;
-    line-height: 100px;
+    line-height: 150px;
     
     transition: 0.3s ease;
 
     z-index: 30;
+
+    @include tablet{
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+    }
     
     @include mobile{
       display: block;
       position: relative;
       left: 0;
       bottom: 0;
-      width: 100%;
-      height: auto;
-      padding: 10px;
-      background: #000;
-      border-radius: 0;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
 
       color: #fff;
       font-size: 18px;
       text-align: center;
-      line-height: 1;
+      line-height: 200px;
     }
 
     &:hover{
       background: #ee265c;
-      transform: translateY(-10px);      
-
-      @include mobile{
-        transform: translateY(0);      
-      }
+      transform: translateY(-10%);      
     }
+  }
+
+  &_slide{
+    margin-bottom: 100px;
   }
 }
 
 // runner
 .runner{
   overflow: hidden;
+  margin-top: 200px;  
 
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  
-  background: #000 url(../images/bg/runner.jpg) no-repeat center / cover;
-  background-attachment: fixed;
+  &_headline{    
+    transform: translateX(50%);
+    
+    p{
+      display: inline-block;
+      font-size: 160px;
+      line-height: 1.2;
+      white-space: nowrap;
+      font-weight: bold;
+    }
 
-  color: #fff;
-
-  &::after{
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,.5);
+    em{
+      color: #ee265c;
+    }
   }
 
-  @include mobile{
-    min-height: auto;
-    margin-top: 100px;
-  }
-
-  .inr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &_text{
+  &_cont{
     position: relative;
-    text-align: center;
+    padding: 200px 58% 200px 8%;
+    background: #000;
 
-    z-index: 10;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url(../images/bg/runner.jpg) no-repeat center / cover;
+    }
+
+    @include tablet{
+      padding: 150px 4%;
+
+      &::after{
+        display: none;
+      }
+    }
+
+    @include tablet{
+      padding: 100px 4%;
+    }
   }
 
   &_title{
     display: inline-block;
     position: relative;
 
-    font-size: 2vw;
+    color: #fff;
+    font-size: 60px;
     font-weight: normal;    
 
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 
-    em{
-      color: #ee265c;
+    @include mobile-middle{
+      font-size: 48px;
     }
 
-    @include mobile{
-      font-size: 27px;
+    em{
+      display: block;
+      color: #ee265c;
     }
   }
 
   &_desc{
-    padding: 30px 0 100px; 
+    padding: 50px 0 30px;
     
-    font-size: 4vw;
+    color: #fff;
+    font-size: 18px;
     line-height: 1.2;        
     word-break: keep-all;
 
-    transition: 0.5s ease;
+    transition: 0.5s ease;   
     
-    @include mobile{
-      font-size: 27px;
+    @include tablet{
+      font-size: 21px;
+    }
+
+    @include mobile-middle{
+      font-size: 16px;
     }
 
     em{
-      display: inline-block;
-      color: #ee265c;
-      font-weight: bold;
-      font-size: 8vw;
-      transition: fontSize 0.5s;
-
-      @include mobile{
-        font-size: 36px;
+      display: block;
+      padding: 20px 0;
+      
+      font-size: 30px;
+  
+      @include mobile-middle{
+        font-size: 21px;
       }
     }
 
   }
 
-  &_link{
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    background: #fff;
-    border-radius: 50%;
-    
-    color: #000;
-    font-size: 21px;
-    line-height: 190px;
-    font-weight: bold;
-    
-    transition: 0.5s ease;
+  &_link-more{
+    color: #fff;
+    font-size: 27px;
+    text-align: center;
+
+    transition: 0.3s ease;
     
     &:hover{
-      background: #ee265c;
-      color: #fff;
-      transform: translateY(-20px);
-    }
-
-    @include mobile{
-      font-size: 16px;
+      color: #ee265c;
+      transform: translateY(-10%);
     }
   }
 
@@ -727,10 +778,8 @@
   }
 }
 
-// company
-.company{
-  margin: 100px 0;
-  
+// board
+.board{
   .inr{
     display: flex;
   
@@ -740,8 +789,9 @@
   }
 
   &_title{
-    align-self: start;
-    padding-right: 50px;    
+    padding-right: 50px;
+    text-align: left;
+
     @include tablet{
       padding-right: 0;
     }
@@ -752,6 +802,36 @@
     flex-wrap: wrap;
     flex: 1;
   }
+
+  &_link-more{
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+
+    font-size: 21px;
+
+    transition: 0.3s ease;
+
+    &:hover{
+      color: #ee265c;
+    }
+
+    @include tablet{
+      top: 8px;
+      bottom: auto;
+      right: 4%;
+      left: auto;
+    }
+
+    @include mobile{
+      right: 2%;
+    }
+  }
+}
+
+// company
+#company{
+  padding: 100px 0;
 
   .item{
     width: 25%;
@@ -821,30 +901,11 @@
 }
 
 // support
-.support{
-  margin-bottom: 100px;
-  
-  .inr{
-    display: flex;
-  
-    @include tablet{
-      flex-direction: column;
-    }
-  }
-
-  &_title{
-    align-self: start;
-    padding-right: 50px;   
-    @include tablet{
-      padding-right: 0;
-    }
-  }
-
-  &_list{
-    flex: 1;
-  }
+#support{
+  padding-bottom: 100px;
 
   .item{
+    width: 100%;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     & + .item{

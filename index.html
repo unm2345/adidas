@@ -78,7 +78,7 @@
     <!-- goods -->
     <section class="goods" id="goods">
       <div class="inr">
-        <h2 class="sc_title">STORE</h2>
+        <h2 class="sc_title js-sc_title">STORE</h2>
   
         <ul class="goods_list"> 
           <li class="item js-item">
@@ -291,11 +291,10 @@
     </section>
     
     <!-- adiclub -->
-    <section class="adiclub js-adiclub" id="adiclub">
+    <section class="adiclub" id="adiclub">
       <div class="inr">
         <div class="adiclub_text">
-          <h2 class="adiclub_title">ADI<span>CLUB</span></h2>            
-          <p class="adiclub_desc">오직 회원만이 누릴 수 있는 다양한 경험과 할인 혜택, 한정판 제품까지. 여러분이 좋아하는 일상을 아디클럽과 함께 즐기고 선물 같은 포인트를 적립해보세요.</p>
+          <h2 class="adiclub_title js-adiclub_title">ADI<span>CLUB</span></h2>            
   
           <div class="adiclub_words">
             <div class="adiclub_word a1 js-adiclub_word">
@@ -344,7 +343,9 @@
             <span class="blind">소개 영상</span>            
             PLAY
           </button>
-        </div>        
+        </div>   
+        
+        
         <div class="adiclub_video-wrap js-adiclub_video-wrap">
           <video src="./asset/images/content/adiclub/adiclub.mp4" controls class="js-adiclub_video"></video>
           <button type="button" class="adiclub_btn pause js-adiclub_btn-pause">
@@ -359,23 +360,28 @@
 
     <!-- runner -->
     <section class="runner" id="runner">
-      <div class="inr">
-        <div class="runner_text">
-          <h2 class="runner_title">
-            ADIDAS <em>RUNNERS</em>
-          </h2>
-          <p class="runner_desc">전 세계의 <em class="js-flash">러너들을</em> 하나로 연결하다.</p>
-          <a href="" class="runner_link">JOIN</a>
-        </div>
-        <div class="runner_dummy js-runner_dummy"></div>
+      <div class="runner_headline">
+        <p class="js-runner_headline">전 세계의 <em>러너들을</em> 하나로 연결하다.</p>
+      </div>
+      <div class="runner_cont">
+        <h2 class="runner_title">
+          ADIDAS <em>RUNNERS</em>
+        </h2>
+        <p class="runner_desc">
+          아디다스 러너스는 다양한 배경을 지닌 러너들이 모인 글로벌 커뮤니티입니다. 우리는 더 빠르게 달리기 위해, 더 건강한 몸을 만들기 위해, 무엇보다도 더 나은 사람이 되기 위해 함께 달립니다.
+
+          <em>러너가 아닌 사람의 발전을 이끌다</em>
+          우리는 경쟁하지 않습니다. 우리가 모두가 자신의 목표를 달성할 수 있도록 서로를 응원합니다. 아디다스 러너는 자신의 한계를 뛰어넘는 것이 진정한 승리임을 잘 알고 있습니다. 우리는 프로 레벨의 트레이닝 프로그램에 러너의 개성까지 고려한 삶의 모든 측면을 풍성하게 만드는 총체적인 접근법을 추구합니다.
+        </p>
+        <a href="" class="runner_link-more">JOIN COMMUNITY</a>        
       </div>
     </section>
 
     <!-- company -->
-    <section class="company" id="company">
+    <section class="board" id="company">
       <div class="inr">
-        <h2 class="sc_title company_title">COMPANY</h2>
-        <ul class="company_list">
+        <h2 class="sc_title js-sc_title board_title">COMPANY</h2>
+        <ul class="board_list">
           <li class="item js-item"><a href="" class="item_link">
             <img src="./asset/images/content/company/company_01.jpg" alt="" class="item_img">
             <div class="item_overlay">
@@ -409,15 +415,16 @@
             </div>
           </a></li>          
         </ul>
+        <a href="" class="board_link-more js-board_link-more">MORE</a>
       </div>
     </section>
 
     <!-- support -->
-    <section class="support" id="support">
+    <section class="board" id="support">
       <div class="inr">
-        <h2 class="sc_title support_title">SUPPORT</h2>
+        <h2 class="sc_title js-sc_title board_title">SUPPORT</h2>
   
-        <ul class="support_list">
+        <ul class="board_list">
           <li class="item js-item">
             <button type="button" class="item_btn">배송 시간과 비용은 어떻게 되나요?</button>
             <div class="item_detail-area">
@@ -518,6 +525,8 @@
             </div>
           </li>
         </ul>
+
+        <a href="" class="board_link-more js-board_link-more">MORE</a>
       </div>
     </section>
   </main>
@@ -554,6 +563,6 @@
   <script src="./asset/js/jquery-3.6.0.min.js"></script>
   <script src="./asset/js/gsap.min.js"></script>
   <script src="./asset/js/ScrollTrigger.min.js"></script>
-  <script src="./asset/js/main.js"></script>
+  <script src="./asset/js/main.js"></script>  
 </body>
 </html>
