@@ -1,72 +1,121 @@
-// home
-.main{
-  overflow: hidden;
-}
-
-.sc_title{
-  padding-bottom: 20px;
-  
-  font-size: 36px;
-  text-align: center;
-}
-
+// intro
 .intro{
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   position: relative;
   height: 100vh;
-  padding-top: 80px;
+  padding: 80px 2% 40px;
 
   @include mobile{
-    padding-top: 60px;
+    padding-top: 260px;
+  }
+
+  &::after{
+    content: '';
+
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent 0%, #fff 100%);
+  }
+
+  &_text{
+    position: relative;
+    margin-top: auto;
+    z-index: 1;
   }
 
   &_title{
-    @include pos-center;
-    width: 100%;
-    
-    color: #fff;
-    font-size: 48px;  
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 0.5vw;
-    white-space: nowrap;
-
-    z-index: 10;
-    word-break: keep-all
-  }
-
-  &_figure{    
-    height: 100%;
-    padding: 20px;    
-  }
-  
-  &_figure-inr{
-    overflow: hidden;
     position: relative;
-    height: 100%;
-        
-    border-radius: 50px 0 50px 50px;
 
-    &::after{
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,.3);
+    color: #000;
+    
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 5vw;  
+    font-weight: bold;
+
+    z-index: 1;
+
+    user-select: none;
+    @include tablet{
+      font-size: 8vw;
+    }
+
+    @include mobile-middle{
+      font-size: 9vw;
     }
   }
 
-  &_img{
-    @include pos-center;
+  &_bg{
+    display: flex;
+    flex-wrap: wrap;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    transform: translate(-50%, -50%) scale(1.6) rotate(-15deg);
+
+    pointer-events: none;
+  }
+
+  &_col-box{
+    width: 20%;
+    height: 25%;
+    padding: 10px;
+
+    transition: padding 0.5s ease;
+
+    @include mobile{
+      padding: 5px;
+    }
+  }
+
+  &_col{
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #eceef0;
+
+    img{
+      opacity: 0.8;
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 }
 
 // goods
 .goods{
+  margin-top: 100px;
   padding-top: 100px;
+
+  &_title{
+    padding-bottom: 20px;
+
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 5vw;
+    font-weight: bold;
+
+    @include tablet{
+      font-size: 10vw;
+    }
+
+    @include mobile{
+      font-size: 10vw;
+    }
+  }
 
   &_list{
     display: flex;    
@@ -170,7 +219,6 @@
       @include pos-center;
       
       font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-      color: #000;
       font-size: 8vw;
       font-weight: bold;
 
@@ -340,6 +388,7 @@
       display: block;
       transform-origin: center;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
 
       transition: transform 0.3s ease-in;
 
@@ -368,6 +417,7 @@
       transform: translate(-50%, -50%) rotateY(180deg);
       transform-origin: center;
       backface-visibility: hidden;   
+      -webkit-backface-visibility: hidden;
       
       transition: 0.3s ease-in;
 
@@ -538,9 +588,13 @@
 
     width: 100%;
     height: 100%;
-    padding: 20px 20px 140px 20px; 
+    padding: 0 8%;  
 
     background: #fff;
+
+    @include tablet{
+      padding: 0 4%;
+    }
 
     @include mobile{
       display: none;
@@ -658,7 +712,7 @@
 // runner
 .runner{
   overflow: hidden;
-  margin-top: 200px;  
+  padding-top: 100px;
 
   &_headline{    
     transform: translateX(50%);
@@ -677,8 +731,9 @@
   }
 
   &_cont{
+    overflow: hidden;
     position: relative;
-    padding: 200px 58% 200px 8%;
+    padding: 100px 58% 100px 8%;
     background: #000;
 
     &::after{
@@ -692,15 +747,15 @@
     }
 
     @include tablet{
-      padding: 150px 4%;
+      padding: 100px 4%;
 
       &::after{
         display: none;
       }
     }
 
-    @include tablet{
-      padding: 100px 4%;
+    @include mobile{
+      padding-bottom: 50px;
     }
   }
 
@@ -712,7 +767,7 @@
     font-size: 60px;
     font-weight: normal;    
 
-    transition: 0.3s ease;
+    transition: font-size 0.3s ease;
 
     @include mobile-middle{
       font-size: 48px;
@@ -725,14 +780,14 @@
   }
 
   &_desc{
-    padding: 50px 0 30px;
+    padding: 30px 0 70px;
     
     color: #fff;
     font-size: 18px;
     line-height: 1.2;        
     word-break: keep-all;
 
-    transition: 0.5s ease;   
+    transition: font-size 0.5s ease;   
     
     @include tablet{
       font-size: 21px;
@@ -756,15 +811,18 @@
   }
 
   &_link-more{
-    color: #fff;
-    font-size: 27px;
+    display: block;
+    padding: 20px 0;
+    background: #fff;
+
+    color: #000;
+    font-size: 18px;
     text-align: center;
 
-    transition: 0.3s ease;
+    transition: background 0.3s ease;
     
     &:hover{
-      color: #ee265c;
-      transform: translateY(-10%);
+      background: #ee265c;
     }
   }
 
@@ -780,6 +838,8 @@
 
 // board
 .board{
+  overflow: hidden;
+
   .inr{
     display: flex;
   
@@ -789,8 +849,8 @@
   }
 
   &_title{
-    padding-right: 50px;
-    text-align: left;
+    padding: 0 50px 20px 0;    
+    font-size: 36px;
 
     @include tablet{
       padding-right: 0;
@@ -808,30 +868,30 @@
     bottom: 0;
     left: 8%;
 
-    font-size: 21px;
+    font-size: 18px;
 
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 
     &:hover{
       color: #ee265c;
     }
 
     @include tablet{
-      top: 8px;
+      top: 16px;
       bottom: auto;
       right: 4%;
       left: auto;
-    }
-
-    @include mobile{
-      right: 2%;
     }
   }
 }
 
 // company
-#company{
+.company{
   padding: 100px 0;
+
+  @include mobile{
+    padding: 100px 0 50px;
+  }
 
   .item{
     width: 25%;
@@ -894,14 +954,14 @@
     
     &_title{
       color: #fff;
-      font-size: 24px;      
+      font-size: 18px;      
       font-weight: bold;
     }
   }
 }
 
 // support
-#support{
+.support{
   padding-bottom: 100px;
 
   .item{
@@ -924,8 +984,20 @@
 
       transition: 0.5s ease;
 
+      
       @include mobile{
         font-size: 14px;
+      }
+
+      &:hover{
+        background: #000;  
+        color: #fff;
+      }
+    }
+    &.on{
+      .item_btn{
+        background: #000;  
+        color: #fff;
       }
     }
 
