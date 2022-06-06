@@ -33,6 +33,7 @@ $(function(){
         $(".js-menu").removeClass("on");
         $(".js-menu_bg").removeClass("on");
         $("body").removeClass("hide");
+        $(".header").removeClass("hide");
       })
 
       $(".js-menu_bg").click(function(){
