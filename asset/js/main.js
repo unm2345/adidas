@@ -4,12 +4,15 @@ $(function(){
       gsap.registerPlugin(ScrollTrigger);
     },
     header: function(){
+      let top = 0
       $(window).scroll(function(){
-        if(0 < $(this).scrollTop()){
-          $(".header").addClass("scroll");
+        if(top < $(this).scrollTop()){
+          $(".header").addClass("hide");
         } else {
-          $(".header").removeClass("scroll");
+          $(".header").removeClass("hide");
         }
+
+        top = $(this).scrollTop();
       })
 
       $(".navi a").click(function(e){
@@ -23,6 +26,7 @@ $(function(){
         $(".js-menu").addClass("on");
         $(".js-menu_bg").addClass("on");
         $("body").addClass("hide");
+        $(".header").addClass("hide");
       })
 
       $(".js-btn_close-menu").click(function(){
