@@ -44,7 +44,7 @@
       font-size: 8vw;
     }
 
-    @include mobile-middle{
+    @include mobile-r{
       font-size: 9vw;
     }
   }
@@ -161,7 +161,7 @@
       }    
     }
   
-    @include mobile-small{
+    @include mobile-s{
       width: 100%;
 
       &:nth-child(-n + 3){  
@@ -186,7 +186,7 @@
         padding-bottom: 65%;
       }
 
-      @include mobile-small{        
+      @include mobile-s{        
         padding-bottom: 100%;
       }
     }
@@ -266,7 +266,7 @@
       @include mobile{
         font-size: 15vw;
       }
-      @include mobile-small{
+      @include mobile-s{
         font-size: 25vw;
       }
     }
@@ -747,7 +747,7 @@
 
     transition: font-size 0.3s ease;
 
-    @include mobile-middle{
+    @include mobile-r{
       font-size: 48px;
     }
 
@@ -771,7 +771,7 @@
       font-size: 21px;
     }
 
-    @include mobile-middle{
+    @include mobile-r{
       font-size: 16px;
     }
 
@@ -781,7 +781,7 @@
       
       font-size: 30px;
   
-      @include mobile-middle{
+      @include mobile-r{
         font-size: 21px;
       }
     }
@@ -879,7 +879,7 @@
       width: 50%;
     }
 
-    @include mobile-middle{
+    @include mobile-r{
       width: 100%;
     }
 

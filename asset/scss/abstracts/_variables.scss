@@ -1,9 +1,8 @@
-// 모바일
-$max-mobile-small-width : 480px;
-$max-mobile-middle-width : 599px;
-$max-mobile-width : 767px;
-// 태블릿
-$max-tablet-width : 1023px;
-// PC
-$max-pc-width : 1279px;
-$max-pc-large-width : 1599px;
+// 미디어쿼리
+$s-mobile-width : 479px; // 모바일 세로
+$r-mobile-width : 599px;
+$mobile-width : 767px;  // 모바일 가로, 타블렛 세로
+$tablet-width : 1023px; // 타블렛 가로
+$pc-width : 1279px; // pc
+$l-pc-width : 1439px; 
+$xl-pc-width : 1599px;
