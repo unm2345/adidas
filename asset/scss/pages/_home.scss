@@ -394,7 +394,6 @@
 
       @include mobile{
         margin-bottom: 20px;
-        font-size: 8vw !important; 
       }
     }
 
@@ -471,6 +470,10 @@
         @include tablet{
           font-size: 4vw;
         }
+
+        @include mobile{
+          font-size: 8vw;
+        }
       }
     }
     &.a2{
@@ -481,6 +484,10 @@
         
         @include tablet{
           font-size: 2.5vw;
+        }
+
+        @include mobile{
+          font-size: 8vw;
         }
       }
     }
@@ -493,6 +500,10 @@
         @include tablet{
           font-size: 3vw;
         }
+
+        @include mobile{
+          font-size: 8vw;
+        }
       }
     }
     &.a4{
@@ -503,6 +514,10 @@
         
         @include tablet{
           font-size: 2.5vw;
+        }
+
+        @include mobile{
+          font-size: 8vw;
         }
       }
     }
@@ -515,6 +530,10 @@
         @include tablet{
           font-size: 3.5vw;
         }
+
+        @include mobile{
+          font-size: 8vw;
+        }
       }
     }
     &.a6{
@@ -525,6 +544,10 @@
 
         @include tablet{
           font-size: 4vw;
+        }
+
+        @include mobile{
+          font-size: 8vw;
         }
       }
     }
@@ -537,6 +560,10 @@
         @include tablet{
           font-size: 3vw;
         }
+
+        @include mobile{
+          font-size: 8vw;
+        }
       }
     }
     &.a8{
@@ -547,6 +574,10 @@
 
         @include tablet{
           font-size: 2.5vw;
+        }
+
+        @include mobile{
+          font-size: 8vw;
         }
       }
     }
@@ -559,6 +590,10 @@
         @include tablet{
           font-size: 3vw;
         }
+
+        @include mobile{
+          font-size: 8vw;
+        }
       }
     }
     &.a10{
@@ -569,6 +604,10 @@
 
         @include tablet{
           font-size: 4vw;
+        }
+        
+        @include mobile{
+          font-size: 8vw;
         }
       }
     }

@@ -813,7 +813,6 @@ body.hide {
 @media (max-width: 767px) {
   .adiclub_word .front {
     margin-bottom: 20px;
-    font-size: 8vw !important;
   }
 }
 
@@ -896,6 +895,12 @@ body.hide {
   }
 }
 
+@media (max-width: 767px) {
+  .adiclub_word.a1 .front {
+    font-size: 8vw;
+  }
+}
+
 .adiclub_word.a2 {
   top: 33%;
   left: 30%;
@@ -908,6 +913,12 @@ body.hide {
 @media (max-width: 1023px) {
   .adiclub_word.a2 .front {
     font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .adiclub_word.a2 .front {
+    font-size: 8vw;
   }
 }
 
@@ -926,6 +937,12 @@ body.hide {
   }
 }
 
+@media (max-width: 767px) {
+  .adiclub_word.a3 .front {
+    font-size: 8vw;
+  }
+}
+
 .adiclub_word.a4 {
   top: 32%;
   right: 25%;
@@ -938,6 +955,12 @@ body.hide {
 @media (max-width: 1023px) {
   .adiclub_word.a4 .front {
     font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .adiclub_word.a4 .front {
+    font-size: 8vw;
   }
 }
 
@@ -956,6 +979,12 @@ body.hide {
   }
 }
 
+@media (max-width: 767px) {
+  .adiclub_word.a5 .front {
+    font-size: 8vw;
+  }
+}
+
 .adiclub_word.a6 {
   top: 92%;
   left: 15%;
@@ -968,6 +997,12 @@ body.hide {
 @media (max-width: 1023px) {
   .adiclub_word.a6 .front {
     font-size: 4vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .adiclub_word.a6 .front {
+    font-size: 8vw;
   }
 }
 
@@ -986,6 +1021,12 @@ body.hide {
   }
 }
 
+@media (max-width: 767px) {
+  .adiclub_word.a7 .front {
+    font-size: 8vw;
+  }
+}
+
 .adiclub_word.a8 {
   top: 78%;
   left: 43%;
@@ -998,6 +1039,12 @@ body.hide {
 @media (max-width: 1023px) {
   .adiclub_word.a8 .front {
     font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .adiclub_word.a8 .front {
+    font-size: 8vw;
   }
 }
 
@@ -1016,6 +1063,12 @@ body.hide {
   }
 }
 
+@media (max-width: 767px) {
+  .adiclub_word.a9 .front {
+    font-size: 8vw;
+  }
+}
+
 .adiclub_word.a10 {
   top: 68%;
   right: 6%;
@@ -1028,6 +1081,12 @@ body.hide {
 @media (max-width: 1023px) {
   .adiclub_word.a10 .front {
     font-size: 4vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .adiclub_word.a10 .front {
+    font-size: 8vw;
   }
 }
 
