@@ -14,12 +14,6 @@ $(function(){
 
         top = $(this).scrollTop();
       })
-
-      $(".navi a").click(function(e){
-        e.preventDefault();
-
-        $($(this).attr("href"))[0].scrollIntoView({behavior: "smooth"});
-      })
     },
     gnb: function(){
       $(".js-btn_open-menu").click(function(){
